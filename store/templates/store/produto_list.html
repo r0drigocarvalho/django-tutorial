@@ -1,0 +1,30 @@
+{% extends "store/base.html" %}
+{% load mathfilters %}
+
+{% block title %}Lista de Produtos{% endblock %}
+
+{% block content %} 
+
+	{% for produto in produto_list %}
+
+	<article>
+
+		<a href="{{ produto.get_absolute_url }}" style="float:left;">
+			<img src="{{ produto.image }}" width="120px" height="120px">
+		</a>
+
+		<h2>
+			<a href="{{ produto.get_absolute_url }}">
+				{{ produto.name }}
+			</a>
+		</h2>
+
+		<h5>por R$ {{ produto.price }}</h5>
+		<h6>em 10x de R$ {{ produto.price|div:10 }} sem juros</h6>
+
+	</article>
+
+
+	{% endfor %}
+
+{% endblock %}

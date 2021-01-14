@@ -1,0 +1,22 @@
+{% extends "store/base.html" %}
+{% load mathfilters %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %} 
+	
+	<h2>{{ produto.name}}</h2>
+
+	<img src="{{ produto.image }}" width="250px" height="250px">
+
+	<h3>R$ {{ produto.price}}</h3>
+	<h6>em 10x de R$ {{ produto.price|div:10 }} sem juros</h6>
+
+	</br>
+
+	<p class="date">
+		Publicado em {{ produto.created }}
+	</p>
+	{{ produto.body|linebreaks }}
+
+{% endblock %}
